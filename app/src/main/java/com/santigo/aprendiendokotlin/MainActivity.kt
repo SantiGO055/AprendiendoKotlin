@@ -222,6 +222,7 @@ class MainActivity : AppCompatActivity() {
      * Aqui trabajamos con map
      */
     private fun maps(){
+        val hola = "hola"
 
     }
 }
