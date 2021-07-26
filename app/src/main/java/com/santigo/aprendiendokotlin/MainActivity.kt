@@ -18,7 +18,13 @@ class MainActivity : AppCompatActivity() {
         //Leccion 5
         //arrays()
         //Leccion 6
-        maps()
+        //maps()
+        //Leccion 7
+        //loops()
+        // Leccion 8
+        //nullSafety()
+        // Leccion 9
+        
     }
 
     /**
@@ -248,5 +254,97 @@ class MainActivity : AppCompatActivity() {
         myMapDos.remove("Maria")
         println(myMapDos)
 
+    }
+
+    /**
+     * Vamos a hablar de loops (bucles)
+     */
+    private fun loops(){
+        // Bucles
+        val myArray: List<String> = listOf("Hola","Bienvenidos al tutorial", "Ciaooo")
+        val myMap = mutableMapOf("Santi" to 1,"Maria" to 2, "Sara" to 3)
+
+        // For
+
+        for (myString in myArray){
+            println(myString)
+        }
+
+        for (myElement in myMap){
+            println("${myElement.key} - ${myElement.value}")
+        }
+
+        /**
+         Imprimo 11 numeros
+         */
+        for (x in 0..10){
+            println("Imprimo 11 numeros " + x)
+        }
+        /**
+         Imprimo 10 numeros
+         */
+        for (x in 0 until 10){
+            println("Imprimo 10 numeros " + x)
+        }
+
+        for (x in 0..10 step 2){
+            println("Imprimo numeros pares " + x)
+        }
+
+        for (x in 10 downTo 0 step 3){
+            println("Imprimo numeros pares " + x)
+        }
+
+        val myNumericArray: IntRange = (0..20)
+
+        for (myNum in myNumericArray){
+            println(myNum)
+        }
+
+        // While
+        var x = 0
+        while (x < 10){
+
+
+            println(x)
+            x++;
+
+        }
+
+    }
+
+    /**
+     * Aqui vamos a hablar de seguridad contra nulos llamada nullSafety
+     */
+    fun nullSafety(){
+        var myString = "SantiGO"
+        //myString = null Esto daria un error de compilacion
+        println(myString)
+
+        //Variable null safety
+        var mySafetyString: String? = "SantiGO null safety"
+        mySafetyString = null
+        println(mySafetyString)
+
+        mySafetyString = "SantiGO"
+        //println(mySafetyString)
+
+        /*if (mySafetyString != null){
+            println("No es nulo " + mySafetyString)//obligo a que mySafetyString no sea nula
+        }
+        else{
+            println(""+mySafetyString)
+        }*/
+
+        // Safe call
+        println(mySafetyString?.length)
+
+        // reemplazo el if( a != null)
+        mySafetyString?.let {  //ejecuto este codigo cuando la variable no sea null
+            println(it)
+        } ?: run{ //lo ejecuto cuando la variable sea null
+            println(mySafetyString)
+
+        }
     }
 }
