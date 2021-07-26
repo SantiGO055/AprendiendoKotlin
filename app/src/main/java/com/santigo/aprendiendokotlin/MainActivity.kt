@@ -219,10 +219,27 @@ class MainActivity : AppCompatActivity() {
     }
 
     /**
-     * Aqui trabajamos con map
+     * Aqui trabajamos con mapa tambien llamados diccionarios
+     *
      */
     private fun maps(){
-        val hola = "hola"
+        var myMap: Map<String,Int> = mapOf() // creo un mapa vacio
 
+        //Añadir elementos
+        myMap = mapOf("Santi" to 24, "PEDRO" to 2) // cada vez que hago mapOf creo un mapa de cero vacio
+        println(myMap)
+
+        //Para agregar un solo valor al mapa creado
+        //myMap["Ana"] = 7 //da error por que el mapa no es mutable
+        val myMapDos: MutableMap<String,Int> = mutableMapOf() // creo mapa mutable para seguir agregando valores
+        myMapDos["Maria"] = 8;
+        myMapDos.put("Juan", 15)
+        println(myMapDos)
+
+        myMapDos.put("Maria",2)
+        myMapDos.put("Marcos",20)
+        println(myMapDos)
+
+        //
     }
 }
