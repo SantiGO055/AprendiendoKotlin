@@ -225,21 +225,28 @@ class MainActivity : AppCompatActivity() {
     private fun maps(){
         var myMap: Map<String,Int> = mapOf() // creo un mapa vacio
 
-        //Añadir elementos
+        // Añadir elementos
         myMap = mapOf("Santi" to 24, "PEDRO" to 2) // cada vez que hago mapOf creo un mapa de cero vacio
         println(myMap)
 
-        //Para agregar un solo valor al mapa creado
+        // Para agregar un solo valor al mapa creado
         //myMap["Ana"] = 7 //da error por que el mapa no es mutable
         val myMapDos: MutableMap<String,Int> = mutableMapOf() // creo mapa mutable para seguir agregando valores
         myMapDos["Maria"] = 8;
         myMapDos.put("Juan", 15)
         println(myMapDos)
 
+        // Actualizar un dato
         myMapDos.put("Maria",2)
         myMapDos.put("Marcos",20)
         println(myMapDos)
 
-        //
+        // Acceso a un dato
+        println(myMapDos["Maria"])
+
+        // Eliminar un dato
+        myMapDos.remove("Maria")
+        println(myMapDos)
+
     }
 }
