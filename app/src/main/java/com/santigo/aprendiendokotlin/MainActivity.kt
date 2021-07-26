@@ -24,7 +24,9 @@ class MainActivity : AppCompatActivity() {
         // Leccion 8
         //nullSafety()
         // Leccion 9
-        
+        //funciones()
+        //Leccion 10
+        clases()
     }
 
     /**
@@ -347,4 +349,53 @@ class MainActivity : AppCompatActivity() {
 
         }
     }
+
+    /**
+     * Se veran funciones
+     */
+    fun funciones(){
+        sayHello()
+        sayHello()
+        sayHello()
+
+        sayMyName("Santiago")
+        sayMyName("Pedro")
+        sayMyName("Sara")
+        sayMyNameAndAge("Santiago",24)
+        sayMyNameAndAge("Pedro",45)
+        sayMyNameAndAge("Sara",35)
+        println(sumTwoNumbers(10,sumTwoNumbers(5,5)))
+
+    }
+    fun sayHello(){
+        println("Hola!")
+
+    }
+    //Funciones con un parametro de entrada
+    fun sayMyName(name: String){
+        println("Hola, mi nombre es $name")
+    }
+    fun sayMyNameAndAge(name: String, age: Int){
+        println("Hola, mi nombre es $name y mi edad es $age")
+    }
+
+    //Funciones con valor de retorno
+    fun sumTwoNumbers(firstNumber: Int, secondNumber: Int) : Int{
+        val sum = firstNumber + secondNumber
+        return sum
+    }
+
+    /**
+     * Hablamos de clases
+     */
+    fun clases(){
+        val Santi = Programmer("Santiago",24, arrayOf(Programmer.Language.KOTLIN, Programmer.Language.JAVASCRIPT))
+
+        //Santi.languages.forEach { println(it) }
+        Santi.code()
+        var sara = Programmer("Sara",35, arrayOf(Programmer.Language.JAVA), arrayOf(Santi))
+        sara.code()
+        println("${sara.friends?.first()?.name} es amigo de ${sara.name}")
+    }
+
 }
