@@ -32,14 +32,16 @@
         tools:layout_editor_absoluteY="570dp" />
 
     <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/etName"
         android:layout_width="77dp"
         android:layout_height="wrap_content"
         android:layout_above="@+id/btnChangeActivity"
         android:layout_alignParentEnd="true"
-        android:layout_marginEnd="168dp"
-        android:layout_marginBottom="304dp"
         android:layout_centerHorizontal="true"
+        android:layout_marginEnd="167dp"
+        android:layout_marginBottom="305dp"
         android:ems="10"
-        android:inputType="textPersonName"/>
+        android:hint="Nombre"
+        android:inputType="textPersonName" />
 
 </RelativeLayout>

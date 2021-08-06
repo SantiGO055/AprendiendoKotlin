@@ -1,12 +1,23 @@
 package com.santigo.aprendiendokotlin
 
-import androidx.appcompat.app.AppCompatActivity
+import android.content.Intent
 import android.os.Bundle
+import android.widget.TextView
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import com.santigo.aprendiendokotlin.databinding.ActivityMainBinding
+
+private lateinit var binding: ActivityMainBinding
+
+
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        val view = binding.root
+        setContentView(view)
+        binding.btnChangeActivity.setOnClickListener{ checkValue(binding.etName) }
         //Leccion 1
         //variablesYConstantes()
         //Leccion 2
@@ -26,7 +37,32 @@ class MainActivity : AppCompatActivity() {
         // Leccion 9
         //funciones()
         //Leccion 10
-        clases()
+        //clases()
+//        val persona: Persona = Persona("Santiago","Gonzalez")
+//        val persona2: Persona = Persona()
+//
+//        persona2.nombre = "Pepe"
+//        persona2.apellido = "Pepe"
+//        persona2.darBienvenida()
+//
+//        persona.darBienvenida()
+        val usuario = User("Santiago",24)
+        val usuario2 = usuario.copy(edad = 20) //copio el objeto a uno nuevo modificando edad
+        println(usuario2.toString()) //imprimo el objeto entero con sus atributos
+        println("Son iguales: ${usuario == usuario2}") //uso equals par ver si son iguales
+
+
+    }
+    fun checkValue(etName: TextView){
+
+        if(etName.text.toString().isEmpty()){
+            Toast.makeText(this, "El nombre no puede estar vacío", Toast.LENGTH_SHORT).show()
+        }else{
+            val intent = Intent(this,ShowNameActivity::class.java)
+            intent.putExtra("name",etName.text.toString())
+            startActivity(intent)
+            //Iremos a otra pantalla
+        }
     }
 
     /**
@@ -399,3 +435,11 @@ class MainActivity : AppCompatActivity() {
     }
 
 }
+
+class Persona(var nombre: String = "",var apellido: String = ""){
+    fun darBienvenida(){
+        println("Bienvenido $nombre $apellido")
+    }
+}
+
+data class User(val nombre: String, val edad: Int)

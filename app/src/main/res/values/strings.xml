@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">AprendiendoKotlin</string>
+
+    <string name="back">volver</string>
 </resources>
