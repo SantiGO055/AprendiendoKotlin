@@ -62,9 +62,25 @@ class MainActivity : AppCompatActivity() {
 
     //usoDeValorMax()
         //repasoDeListaInmutable()
-        extentionFunctions()
+        //extentionFunctions()
+        repasoManejoNullabilidad()
     }
 
+    /**
+     * Repaso el manejo de la nullabilidad
+     */
+    fun repasoManejoNullabilidad(){
+        val nombre: String? = null
+        //val c = nombre?.length ?: "Leo".length //elvis operator jejeje //si la variable es nula se ejecuta lo que esta despues del elvis
+        //println(nombre!!.length) //si pongo signo !! le digo explicitamente que la variable NO es null, NO USARLO EXCEPTO PARA TESTING
+        //puedo usar operador let
+        nombre?.let{
+            println(it) //solo entra aca cuando la variable no sea nula
+        }
+        //println(c)
+
+
+    }
     /**
      * Funcion que se le aplica a clase de cierto tipo y se le transforma su valor al valor que se desee
      * Es como la sobreescritura de metodos ya creados
