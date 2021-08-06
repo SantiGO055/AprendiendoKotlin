@@ -59,13 +59,73 @@ class MainActivity : AppCompatActivity() {
         //usoDeObjetos()
         //usoDeDataClasses()
         //usoDeConstantes()
-        val numero = 4;
-        if(esPar(numero)){
-            println("El numero $numero es par")
+
+    //usoDeValorMax()
+        //repasoDeListaInmutable()
+        extentionFunctions()
+    }
+
+    /**
+     * Funcion que se le aplica a clase de cierto tipo y se le transforma su valor al valor que se desee
+     * Es como la sobreescritura de metodos ya creados
+     */
+    fun extentionFunctions(){
+          val nombre = "Santiago"
+//        println(nombre.toLowerCase())
+//
+//        val numero = 10
+//        println(numero.toString())
+
+        println("Remover primer caracter: ${nombre.removerPrimerCaracter()}")
+    }
+    //continuo con extention functions
+    fun String.removerPrimerCaracter(): String{
+        return this.substring(1,this.length)
+    }
+
+    fun repasoDeListaMutable(){
+        var listaMutable = mutableListOf("Gaston","Agustin","Pedro","Federico")
+        listaMutable.add("Leo")
+        listaMutable.removeAt(2)
+        for((index,value) in listaMutable.withIndex()){ //nos da el valor  y el indice de la lista, va en el orden index,value
+
+
+            println("Nombre $value con indice: $index" )
         }
-        else{
-            println("El numero $numero es impar")
+    }
+    fun repasoDeListaInmutable(){
+        var listaInmutable = listOf<String>("Auto","Moto","Bicicleta")
+        //listaInmutable.add //solo accedo a los elementos pero no la puedo modificar
+        //listaInmutable += "" //pide que cambiemos a mutablelistof para poder hacer la asignacion
+        listaInmutable.forEach{elementos->
+            println(elementos)
+        } //por defecto toma it como si fuera un this por cada elemento
+        listaInmutable.forEachIndexed { index, element ->
+            println("Nombre $element con indice: $index" )
+
         }
+
+    }
+    fun usoDeValorMax(){
+        //        val numero = 4;
+//        if(esPar(numero)){
+//            println("El numero $numero es par")
+//        }
+//        else{
+//            println("El numero $numero es impar")
+//        }
+//        var max: Int
+
+        //        max = if(a > b){
+        //            a
+        //        }
+        //        else{
+        //            b
+        //        }
+        val a = 3
+        val b = 2
+        val max = if(a > b) a else b
+        println(max)
     }
     fun usoDeObjetos(){
         val persona: Persona = Persona("Santiago","Gonzalez")
