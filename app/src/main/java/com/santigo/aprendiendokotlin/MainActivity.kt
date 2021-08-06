@@ -11,6 +11,22 @@ private lateinit var binding: ActivityMainBinding
 
 
 
+class Constantes {
+    //aca adentro declaramos las constantes, es similar al public statis final de java
+    companion object {
+        const val direccion = "25 de julio"
+    }
+}
+
+enum class DIAS(val numero: Int){
+    LUNES(0),
+    MARTES(1),
+    MIERCOLES(2),
+    JUEVES(3),
+    VIERNES(4),
+    SABADO(5),
+    DOMINGO(6)
+}
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,20 +54,40 @@ class MainActivity : AppCompatActivity() {
         //funciones()
         //Leccion 10
         //clases()
-//        val persona: Persona = Persona("Santiago","Gonzalez")
-//        val persona2: Persona = Persona()
-//
-//        persona2.nombre = "Pepe"
-//        persona2.apellido = "Pepe"
-//        persona2.darBienvenida()
-//
-//        persona.darBienvenida()
+
+
+        //usoDeObjetos()
+        //usoDeDataClasses()
+        //usoDeConstantes()
+        val numero = 4;
+        if(esPar(numero)){
+            println("El numero $numero es par")
+        }
+        else{
+            println("El numero $numero es impar")
+        }
+    }
+    fun usoDeObjetos(){
+        val persona: Persona = Persona("Santiago","Gonzalez")
+        val persona2: Persona = Persona()
+        persona2.nombre = "Pepe"
+        persona2.apellido = "Pepe"
+        persona.darBienvenida()
+        persona2.darBienvenida()
+    }
+    fun usoDeDataClasses(){
         val usuario = User("Santiago",24)
         val usuario2 = usuario.copy(edad = 20) //copio el objeto a uno nuevo modificando edad
         println(usuario2.toString()) //imprimo el objeto entero con sus atributos
         println("Son iguales: ${usuario == usuario2}") //uso equals par ver si son iguales
-
-
+    }
+    fun usoDeConstantes(){
+        println(Constantes.direccion)
+        val dia = DIAS.LUNES.numero
+        println(dia)
+    }
+    private fun esPar(numero: Int): Boolean{ //el private es visible desde el scope de esta clase, no desde ninguna otra
+        return numero % 2 == 0
     }
     fun checkValue(etName: TextView){
 
